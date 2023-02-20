@@ -1,8 +1,9 @@
 var startBtnEl = document.getElementById("startBtn");
 var questionEl = document.getElementById("question");
 var startEl = document.getElementById("start");
-var timeEl= document.getElementById('timer');
-
+var timeEl = document.getElementById('timer');
+var answerEl = document.querySelector('a');
+var score = 0;
 var questionsAndAnswers = [
     {
         question: "Var, let and const are all examples of what?",
@@ -33,18 +34,22 @@ var questionsAndAnswers = [
 var currentIndex = 0;
 
 function startQuiz() {
-    //hides start screen with button
     startEl.setAttribute("class", "quiz hide");
-    //shows quiz section
     questionEl.setAttribute("class", "question-1");
     timeEl.setAttribute('class', '');
-    //shows first question from list (array)
-    startTimer()
-    showQuestion()
-    showChoices()
-    
-    //start timer function call because multiple lines to get the timer rolling
-    
+    startTimer();
+    showQuestion();
+    showChoices();
+    function onAnswer() {
+        if(choices === answer) {
+        currentIndex++;
+        score++;
+        }else {
+        currentIndex++;
+        secondsLeft -5
+        }
+    };
+    answerEl.addEventListener('click', onAnswer);
 }
 
 var secondsLeft = 60
@@ -64,7 +69,6 @@ function startTimer() {
 }
 
 function showQuestion(){
-    //present first quesiton of list here
     document.getElementById("promptText").textContent = questionsAndAnswers[currentIndex].question
 }
 
@@ -77,8 +81,6 @@ function showChoices() {
 
 
 
-function onAnswer() {
 
-}
 
 startBtnEl.addEventListener("click", startQuiz)
