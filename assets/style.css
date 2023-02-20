@@ -1,7 +1,7 @@
  .quiz {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 40px;
-    margin-top: 500px;
+    
 }
 
 
@@ -24,7 +24,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 300px;
+    
 }
 
 .question-1 ul li {
